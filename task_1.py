@@ -4,16 +4,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 df = pd.read_csv(r"API_SP.POP.TOTL_DS2_en_csv_v2_403333\API_SP.POP.TOTL_DS2_en_csv_v2_403333.csv",skiprows=4) #copy the path by rigth clicking the file and paste it 
 print("Missing values:\n", df.isnull().sum())
-# Drop unnecessary columns
+
 df = df.drop(columns=["Indicator Name", "Indicator Code", "Country Code"])
 
-# Select only 2022 population data
 df = df[["Country Name", "2022"]].dropna()
 
-# Rename for clarity
 df.columns = ["Country", "Population_2022"]
 
-# Preview
 print(df.head())
 
 plt.figure(figsize=(10, 6))
@@ -26,7 +23,7 @@ plt.show()
 
 top10 = df.sort_values(by="Population_2022", ascending=False).head(10)
 
-# Plot bar chart
+
 plt.figure(figsize=(12, 6))
 plt.bar(top10["Country"], top10["Population_2022"] / 1e6, color='teal')
 plt.title("Top 10 Most Populous Countries in 2022")
