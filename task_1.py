@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-df = pd.read_csv(r"C:\Users\ANJALI DUBEY\Downloads\API_SP.POP.TOTL_DS2_en_csv_v2_403333\API_SP.POP.TOTL_DS2_en_csv_v2_403333.csv",skiprows=4)
+df = pd.read_csv(r"API_SP.POP.TOTL_DS2_en_csv_v2_403333\API_SP.POP.TOTL_DS2_en_csv_v2_403333.csv",skiprows=4) #copy the path by rigth clicking the file and paste it 
 print("Missing values:\n", df.isnull().sum())
 # Drop unnecessary columns
 df = df.drop(columns=["Indicator Name", "Indicator Code", "Country Code"])
